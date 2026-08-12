@@ -37,6 +37,92 @@
     <title>Document</title>
   </head>
   <body class="bg-[#FFFCFA] text-[#241F1C] font-poppins">
+    <nav class="max-w-6xl mx-auto px-6 py-5">
+      <div class="flex justify-between items-center">
+        <a href=""
+          ><img src="img/main-logo.PNG" class="w-16" alt="" srcset=""
+        /></a>
+        <ul class="hidden md:flex gap-6">
+          <li>
+            <a href="" class="hover:text-[#622B14] hover:font-semibold"
+              >Products</a
+            >
+          </li>
+          <li>
+            <a href="" class="hover:text-[#622B14] hover:font-semibold"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a href="" class="hover:text-[#622B14] hover:font-semibold"
+              >Pricings</a
+            >
+          </li>
+          <li>
+            <a href="" class="hover:text-[#622B14] hover:font-semibold"
+              >Testimonials</a
+            >
+          </li>
+          <li>
+            <a href="" class="hover:text-[#622B14] hover:font-semibold">Blog</a>
+          </li>
+        </ul>
+        <a
+          href=""
+          class="hidden md:block hover:bg-[#622B14] text-base bg-[#241F1C] text-white py-3 px-8 rounded-full font-semibold"
+          >Sign In</a
+        >
+        <!-- Hambuger Button -->
+        <button id="menu-btn" class="md:hidden">
+          <!-- Icon Hamburger -->
+          <svg
+            id="icon-open"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <!-- Icon Close (X) -->
+          <svg
+            id="icon-close"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <ul id="mobile-menu" class="flex flex-col gap-5 mt-6 hidden">
+        <li><a href="" class="block">Products</a></li>
+        <li><a href="" class="block">Services</a></li>
+        <li><a href="" class="block">Pricings</a></li>
+        <li><a href="" class="block">Testimonials</a></li>
+        <li><a href="" class="block">Blog</a></li>
+        <li>
+          <a
+            href=""
+            class="block text-center text-base bg-[#622B14] text-white py-3 px-8 rounded-full font-semibold"
+            >Sign In</a
+          >
+        </li>
+      </ul>
+    </nav>
+    
     <section class="hero max-w-6xl py-12 mx-auto px-5">
       <div
         class="flex flex-col gap-y-10 md:flex-row items-center justify-between"
@@ -731,5 +817,27 @@
         </p>
       </div>
     </section>
+
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      const iconOpen = document.getElementById("icon-open");
+      const iconClose = document.getElementById("icon-close");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        iconOpen.classList.toggle("hidden");
+        iconClose.classList.toggle("hidden");
+      });
+
+      const mobileLinks = menu.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+          iconOpen.classList.remove("hidden");
+          iconClose.classList.add("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
